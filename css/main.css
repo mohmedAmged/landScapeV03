@@ -1,0 +1,1477 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css");
+@import url("../css/bootstrap.min.css");
+/* start global rules*/
+:root {
+  --green-color: #2a7d2e;
+  --second-green-color: #0b3d2c;
+  --third-green-color: #124a2f;
+  --hover-btn-black: #000000;
+  --white-text-color: rgb(255, 255, 255);
+  --black-text-color: rgb(30, 30, 30);
+  --gray-bg-color: #fbf9f6;
+  --dark-gray-text-color: #2f2f2f;
+  --font-fam-one: "Rubik", sans-serif;
+}
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--green-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--third-green-color);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  margin: 0;
+  background-color: #fff;
+  font-family: "Rubik", sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  padding-left: 0;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: inherit;
+  margin: 0px;
+  line-height: 1.2;
+}
+h3 {
+  color: var(--second-green-color);
+  font-weight: 300;
+  font-style: normal;
+  font-size: 26px;
+  line-height: 1.15;
+}
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.5;
+  font-style: normal;
+}
+.togleTopBtn{
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--green-color);
+}
+.p-top {
+  padding-top: 100px;
+}
+.p-bottom {
+  padding-bottom: 100px;
+}
+/* .border-right{
+  border-style: solid;
+  border-width: 0;
+  background-clip: border-box;
+  border-color: #ededed;
+  border-inline-end-width: 1px;
+  height: 230px;
+ } */
+/* end global rules*/
+/*start header*/
+header {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 80px;
+  transition: all 0.3s ease-in-out 0s;
+  background-color: transparent !important;
+  font-family: "Rubik", sans-serif;
+}
+header .navbar {
+  padding: 30px 0px;
+}
+header .navbar-brand {
+  color: var(--white-text-color);
+  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: 700;
+  transition: all 0.3s ease 0s;
+}
+header .navbar-brand:hover {
+  color: var(--white-text-color);
+}
+header .navbar-collapse {
+  justify-content: flex-end;
+}
+header .navbar-nav {
+  margin-left: auto !important;
+}
+header .nav-item {
+  display: flex;
+  margin: 0px 15px;
+}
+header .nav-link {
+  text-transform: capitalize;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.5s ease 0s;
+  margin-top: 5px;
+  color: var(--white-text-color);
+}
+header .nav-link.active {
+  color: var(--white-text-color) !important;
+  border-bottom: 3px solid var(--green-color);
+}
+header .nav-link:hover {
+  color: var(--green-color) !important;
+  border-bottom: 3px solid var(--green-color);
+}
+/*end header*/
+/* strat banner  */
+.bannerSlider{
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+}
+.bannerSlider .overlay{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.395);
+}
+
+.creative-slider {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+.creative-slider-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.creative-slider-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.creative-slider-bg-image.active {
+  opacity: 1;
+}
+
+.creative-slider-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.creative-slider-overlay.active {
+  opacity: 1;
+}
+
+.creative-slider-overlay-text {
+  font-size: 48px;
+  font-weight: bold;
+  margin: 0;
+}
+.creative-slider-overlay p{
+  margin-top: 30px !important;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+}
+.creative-slider-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  z-index: 6;
+  transform: translateX(-50%);
+}
+.creative-slider-prev, .creative-slider-next {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 24px;
+  color: #fff;
+  margin: 0 10px;
+}
+
+/* end banner  */
+/* start main Part */
+/* start bannerBoxSec Sec */
+.bannerBoxSec .boxContent {
+  box-shadow: 0 5px 30px 0 rgb(0 0 0 / 5%);
+  padding: 40px;
+  text-align: center;
+}
+
+.bannerBoxSec .boxContent .boxIcon {
+  margin: 10px;
+}
+.bannerBoxSec .boxContent .boxTit h3 {
+  font-size: 24px;
+  line-height: 1.15;
+  font-weight: 300;
+  /* margin-bottom: 1rem; */
+}
+.bannerBoxSec .boxContent .boxTit h3 a {
+  color: var(--second-green-color);
+}
+.bannerBoxSec .boxContent .boxDesc p {
+  margin-bottom: 1rem;
+  color: var(--dark-gray-text-color);
+}
+/* end bannerBoxSec Sec */
+/* start breifSec Sec */
+.breifSec {
+  background-image: url("../img/bgSecImg/Leaf-testimonials-1.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  padding-bottom: 50px;
+}
+.breifSec .breifContent {
+  text-align: center;
+}
+.breifSec .breifContent .breifTitle {
+  margin-bottom: 8px;
+}
+.breifSec .breifContent .breifTitle h4 {
+  font-weight: 200;
+  font-size: 70px;
+  line-height: 1.06;
+  font-style: normal;
+  color: var(--green-color);
+}
+.breifSec .breifContent .breifDesc {
+  padding: 0 40px;
+}
+.breifSec .breifContent .breifDesc p {
+  text-align: center;
+  letter-spacing: normal;
+  color: var(--dark-gray-text-color);
+}
+.breifSec .breifNumbers .boxTitle {
+  color: var(--green-color);
+  font-size: 80px;
+  line-height: 1.2em;
+}
+.breifSec .breifNumbers .boxTitle span {
+  font-weight: 500;
+}
+.breifSec .breifNumbers .boxTitle span a img {
+  width: 200px;
+  height: 60px;
+}
+.breifSec .breifNumbers .boxSubTitle {
+  color: var(--green-color);
+  font-size: 34px;
+  line-height: 1em;
+  margin-top: 10px;
+}
+
+/* end breifSec Sec */
+/* start workSec Sec  */
+.workSec {
+  background-color: var(--gray-bg-color);
+  padding-bottom: 50px;
+}
+.secTitle {
+  color: var(--third-green-color);
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1.13;
+  font-size: 46px;
+  margin-bottom: 50px;
+}
+
+/*-------*/
+
+.filter {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.filter .btn {
+  display: inline-block;
+  margin: 0 10px;
+  padding: 10px 20px;
+  background-color: #ddd;
+  font-family: "Rubik", sans-serif;
+  color: var(--second-green-color);
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.filter .btn.active {
+  background-color: var(--third-green-color);
+  color: #fff;
+}
+.item {
+  margin-bottom: 20px;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  height: 300px;
+  width: 100%;
+}
+.item .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background-color: rgba(255, 255, 255, 0.842);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  transition: opacity 0.3s ease;
+}
+.item .overlay h2 {
+  color: var(--green-color);
+  transition: opacity 0.4s, transform 0.4s, color 0.4s;
+  transform: translate(0, 20px) scale(1.2);
+  padding: 0 5%;
+  opacity: 0;
+}
+.item .overlay p {
+  color: var(--dark-gray-text-color);
+  transition: opacity 0.5s, transform 0.5s;
+  transform: translate(0, 40px) scale(1.2);
+  padding: 0 3em;
+  opacity: 0;
+}
+.item img {
+  object-fit: cover;
+  height: 300px;
+  transition: transform 0.3s ease;
+  
+}
+.item:hover img {
+  transform: scale(1.1);
+}
+.item:hover .overlay {
+  opacity: 1;
+}
+.item:hover h2 {
+  opacity: 1;
+}
+.item:hover p {
+  opacity: 1;
+}
+.hide {
+  display: none;
+}
+.hidden {
+  display: none;
+}
+.workSec .load-more .btn {
+  background-color: var(--green-color);
+  color: #fff;
+  border-radius: 100px;
+  border: none;
+  padding: 16px 30px;
+  box-shadow: 0 0 25px -14px var(--green-color);
+  font: 400 14px/1em "Rubik", sans-serif;
+  transition: color 0.3s ease-out, border 0.3s ease-out,
+    background-color 0.3s ease-out, box-shadow 0.3s ease-out !important;
+}
+.workSec .load-more .btn:hover {
+  background-color: var(--third-green-color);
+  color: #fff;
+  box-shadow: 0 0 25px -14px var(--third-green-color);
+}
+/* end workSec Sec  */
+/* start aboutUs Sec */
+.aboutUs .aboutRight {
+  background-image: url("../img/bgSecImg/Untitled.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center right;
+  padding: 120px 0;
+}
+.aboutUs .disActiveSec{
+  display: none !important;
+}
+.aboutUs .aboutRight .aboutText {
+  text-align: right;
+  margin-right: 48px;
+}
+.aboutUs .aboutLeft {
+  padding-right: 150px;
+  text-align: right;
+}
+.aboutUs .aboutLeft .leftGreenInfo {
+  background-color: var(--green-color);
+  color: #fff;
+  padding: 100px 50px;
+}
+.aboutUs .aboutLeft .leftGreenInfo .infoText h3 {
+  margin: 20px 0;
+}
+.aboutUs .aboutLeft .leftGreenInfo .infoText .infoBtn {
+  margin: 20px 0;
+}
+.aboutUs .aboutLeft .leftGreenInfo .infoBtn .btn {
+  background-color: transparent;
+  border-radius: 100px;
+  font-size: 14px;
+  line-height: 16px;
+  padding: 16px 32px;
+  cursor: pointer;
+  font: 400 14px/1em;
+  color: #fff;
+  border-color: #fff;
+  transition: color 0.3s ease-out, border 0.3s ease-out,
+    background-color 0.3s ease-out;
+}
+.aboutUs .aboutLeft .leftGreenInfo .infoBtn .btn:hover {
+  background-color: var(--third-green-color);
+  border-color: var(--third-green-color);
+  color: #fff;
+}
+.aboutUs .aboutLeft .leftWhiteInfo {
+  background-color: #fff;
+  padding: 100px 50px;
+}
+.aboutUs .aboutLeft .leftWhiteInfo .infoText h3 {
+  color: var(--second-green-color);
+  font-weight: 300;
+  font-style: normal;
+  font-size: 26px;
+  line-height: 1.15;
+}
+.aboutUs .moveTop {
+  margin-top: -50px;
+}
+.aboutUs .aboutLeft .leftWhiteTwoInfo {
+  padding: 100px 50px;
+}
+.aboutUs .aboutLeft .leftWhiteTwoInfo h3 {
+  margin: 20px 0;
+}
+/* end aboutUs Sec */
+/* start makingSec Sec */
+.makingSec {
+  background-image: url("../img/makingSec/pic1.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: fixed;
+  height: 60vh;
+  position: relative;
+}
+.makingSec .makingItem {
+  padding-top: 50px;
+  margin: auto;
+}
+.makingSec .makingItem .makingTit h5 {
+  font-size: 70px;
+  line-height: 1.1;
+  /* font-weight: 500; */
+  font-style: normal;
+  color: #fff;
+  margin-bottom: 70px;
+}
+.makingSec .makingItem .makingLink{
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.makingSec .makingItem .makingLink a {
+
+  font-size: 14px;
+  line-height: 16px;
+  padding: 16px 32px;
+  background-color: #fff;
+  color: #000000;
+  box-shadow: 0 0 25px -14px #fff;
+  border-radius: 100px;
+  border: none;
+}
+.makingSec .makingItem .makingLink a i {
+  font-size: 1.3em;
+  margin-left: 8px;
+  margin-right: 0;
+  vertical-align: middle;
+}
+.makingSec .makingItem .makingLink a:hover {
+  background: var(--green-color);
+  color: #fff;
+  box-shadow: 0 0 25px -14px var(--green-color);
+}
+/* end makingSec Sec */
+/* start footer Part */
+.footerSec {
+  background-image: url("../img/footer/footer\ \(1\).jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.footerSec .footertit h3 {
+  font-size: 50px;
+  padding: 50px 0;
+}
+.footerSec .footertit h3 i {
+  font-size: 1.3em;
+  margin-left: 8px;
+  margin-right: 0;
+  vertical-align: middle;
+}
+.footerSec .footerInfo p a {
+  color: inherit;
+  text-decoration: none;
+  font-size: inherit;
+  font-weight: inherit;
+  transition: color 0.3s ease-in-out;
+  border-bottom: solid 2px transparent;
+}
+.footerSec .footerInfo p a:hover {
+  color: var(--second-green-color);
+  border-color: var(--second-green-color);
+}
+.footerSec .footerSocial span {
+  margin: 10px;
+  display: inline-block;
+}
+.footerSec .footerSocial span a {
+  transition: color 0.3s ease-in-out;
+  color: var(--green-color);
+  cursor: pointer;
+}
+.footerSec .footerSocial span a i {
+  font-size: 25px;
+  color: var(--green-color);
+  border-radius: 30em;
+  transition: color 0.3s ease;
+}
+.footerSec .footerSocial span a i:hover {
+  color: var(--third-green-color);
+}
+.footerSec .footerPowered p {
+  margin-bottom: 0 !important;
+}
+/* end footer Part */
+/*------------------start about us page--------*/
+/* start aboutHeader Sec */
+header.aboutHeader {
+  position: relative;
+  width: 100%;
+  height: auto;
+  transition: all 0.3s ease-in-out 0s;
+  background-color: #fff;
+  font-family: "Rubik", sans-serif;
+}
+header.aboutHeader .navbar {
+  padding: 15px 0px;
+}
+header.aboutHeader .navbar-brand {
+  color: var(--second-green-color);
+}
+header.aboutHeader .navbar-brand i {
+  font-size: 30px;
+  color: var(--green-color);
+  border-radius: 30em;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+header.aboutHeader .nav-link {
+  color: var(--third-green-color);
+}
+header.aboutHeader .navbar-nav .nav-link.active {
+  color: var(--green-color) !important;
+}
+/* end aboutHeader Sec */
+/* start aboutBanner Sec */
+.aboutBanner {
+  background-image: url("../img/about-imgs/Pic1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  height: 50vh;
+  position: relative;
+}
+.aboutBanner .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.349);
+}
+.aboutBanner .textContent {
+  position: absolute;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.aboutBanner .textContent h4 {
+  text-transform: uppercase;
+  padding-top: 50px;
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: var(--white-text-color);
+}
+/* end aboutBanner Sec */
+/* start textOfferSec Sec */
+.textOfferSec .textTit {
+  text-align: right;
+  color: var(--third-green-color);
+  font-weight: 500;
+  font-style: normal;
+  font-size: 46px;
+  line-height: 1.13;
+  width: 80%;
+}
+.textOfferSec .textInfo {
+  color: var(--second-green-color);
+  text-align: right;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 22px;
+  line-height: 1.18;
+  width: 80%;
+}
+/* end textOfferSec Sec */
+/* start aboutGallerySec Sec */
+.aboutGallerySec .itemBox {
+  margin-bottom: 20px;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  height: 200px;
+  width: 100%;
+}
+.aboutGallerySec .itemBox img {
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.aboutGallerySec .itemBox:hover img {
+  transform: scale(1.1);
+}
+.aboutGallerySec .itemBox .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background-color: rgba(24, 23, 23, 0.842);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  transition: opacity 0.3s ease;
+}
+.aboutGallerySec .itemBox:hover .overlay {
+  opacity: 1;
+}
+.aboutGallerySec .itemBox .overlay .overlayText h2 {
+  transition: opacity 0.4s, transform 0.4s;
+  padding: 0 5%;
+  opacity: 0;
+  transform: translate(0, 0);
+  margin-bottom: 0.2em;
+  font-size: 26px;
+  line-height: 26px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.aboutGallerySec .itemBox:hover .overlay .overlayText h2 {
+  opacity: 1;
+  transform: translate(0, -30px);
+}
+.aboutGallerySec .itemBox .overlay .overlayText h2:hover {
+  opacity: 0.8;
+}
+/* end aboutGallerySec Sec */
+/* start aboutNumbersSec Sec */
+.aboutNumbersSec .numbersItem {
+  text-align: center;
+}
+.aboutNumbersSec .numbersItem .numTit {
+  color: var(--green-color);
+  line-height: 1.2em;
+  font-size: 42px;
+  font-weight: 500;
+  text-align: center;
+}
+.aboutNumbersSec .numbersItem .numText {
+  color: var(--third-green-color);
+  font-size: 34px;
+  line-height: 1em;
+  margin: 10px 0;
+  text-align: center;
+}
+.aboutNumbersSec .numbersItem .numInfo {
+  color: var(--dark-gray-text-color);
+  margin-top: 10px;
+  text-align: center;
+  opacity: 0.8;
+}
+/* end aboutNumbersSec Sec */
+/* start aboutCardsSec Sec */
+.aboutCardsSec {
+  background-color: #fcfaf7;
+  margin-top: 60px;
+}
+.aboutCardsSec .card .card-body a {
+  color: var(--second-green-color);
+  margin-right: 10px !important;
+  margin-bottom: 10px !important;
+  margin-left: 10px !important;
+  font-weight: 300;
+  font-size: 26px;
+  font-style: normal;
+  line-height: 1.15;
+  border-bottom: solid 2px transparent;
+  transition: all 0.3s;
+}
+.aboutCardsSec .card .card-img-top{
+height: 300px;
+object-fit: cover;
+}
+/* .aboutCardsSec .card .card-body{
+  height: 180px;
+} */
+.aboutCardsSec .card .card-body a:hover {
+  border-color: var(--second-green-color);
+}
+.aboutCardsSec .cardDes {
+  text-align: right;
+}
+.aboutCardsSec .cardDes h5 {
+  color: var(--second-green-color);
+  font-weight: 500;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 1.38;
+}
+.aboutCardsSec .cardDes a {
+  font-size: 14px;
+  line-height: 16px;
+  padding: 1px 0px;
+  border-bottom: 2px solid;
+  color: var(--green-color);
+  border-color: var(--green-color);
+}
+.aboutCardsSec .cardDes ul {
+  margin: 0 1.5em 0.5em;
+}
+.aboutCardsSec .cardDes ul li {
+  list-style: disc;
+  color: var(--dark-gray-text-color);
+}
+/* end aboutCardsSec Sec */
+/* start planSec Sec */
+.planSec .planItem.one {
+  background-image: url("../img/about-imgs/aboutIcons/one.png");
+}
+.planSec .planItem.two {
+  background-image: url("../img/about-imgs/aboutIcons/two.png");
+}
+.planSec .planItem.three {
+  background-image: url("../img/about-imgs/aboutIcons/three.png");
+}
+.planSec .planItem {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: scroll;
+  padding: 80px 0 60px 0;
+}
+.planSec .planItem .planText {
+  width: 80%;
+  margin: auto;
+  padding: 10px;
+}
+.planSec .planItem .planText h4 {
+  text-align: center;
+  color: var(--second-green-color);
+  font-weight: normal;
+  font-size: 22px;
+  font-style: normal;
+  line-height: 1.18;
+}
+.planSec .planItem .planText p {
+  margin-bottom: 1em;
+  color: var(--dark-gray-text-color);
+}
+/* end planSec Sec */
+/* start aboutUsDesSec Sec */
+.aboutUsDesSec {
+  background-color: #fcfaf7;
+}
+.aboutUsDesSec .boxBg {
+  background-color: #fff;
+}
+.aboutUsDesSec .boxText {
+  text-align: right;
+  padding-top: 120px;
+  padding-right: 20px;
+  padding-bottom: 140px;
+  padding-left: 40px;
+  background-image: url("../img/bgSecImg/Untitled.png");
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-attachment: scroll;
+  background-size: contain;
+}
+.aboutUsDesSec .boxText .title {
+  margin: 10px;
+}
+.aboutUsDesSec .boxText .title h2 {
+  color: var(--third-green-color);
+  font-weight: 500;
+  font-size: 46px;
+  font-style: normal;
+  line-height: 1.13;
+}
+.aboutUsDesSec .boxText .desc p {
+  color: #2f2f2f;
+}
+/* end aboutUsDesSec Sec */
+/* start contactUsSec Sec */
+.contactUsSec .contactForm {
+  padding: 60px 0;
+  padding-right: 50px;
+  text-align: right;
+}
+.contactUsSec .contactForm .contactText h2 {
+  margin: 10px;
+  color: var(--third-green-color);
+  font-weight: 500;
+  font-size: 46px;
+  font-style: normal;
+  line-height: 1.13;
+}
+.contactUsSec .contactForm .contactText h4 {
+  margin: 10px;
+  color: var(--second-green-color);
+  font-weight: normal;
+  font-size: 22px;
+  font-style: normal;
+  line-height: 1.18;
+}
+.contactUsSec .contactForm form {
+  margin: 10px;
+}
+.contactUsSec .contactForm form input {
+  padding: 15px 25px;
+  outline: 0;
+  height: auto;
+  border: solid 1px #d8d8d8;
+  margin: 0;
+  color: #000000;
+  background: #fff;
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 1.1em;
+  border-radius: 30em;
+  font-family: var(--font-fam-one);
+}
+.contactUsSec .contactForm form textarea {
+  border-radius: 16px;
+  margin-bottom: 5px !important;
+  padding: 15px 25px;
+  outline: 0;
+  border: solid 1px #d8d8d8;
+  color: #000000;
+  background: #fff;
+  font-size: 16px;
+  line-height: 1.1em;
+}
+.contactUsSec .contactForm form .contactBtn {
+  text-align: left;
+}
+.contactUsSec .contactForm form button {
+  margin-top: 20px;
+  cursor: pointer;
+  font: 400 14px/1em var(--font-fam-one);
+  border-radius: 100px;
+  border: none;
+  padding: 16px 30px;
+  background-color: var(--green-color);
+  color: #fff;
+  box-shadow: 0 0 25px -14px var(--green-color);
+  transition: color 0.3s ease-out, border 0.3s ease-out,
+    background-color 0.3s ease-out, box-shadow 0.3s ease-out !important;
+}
+.contactUsSec .contactForm form button:hover {
+  background: var(--third-green-color);
+  color: #fff;
+  box-shadow: 0 0 25px -14px var(--third-green-color);
+}
+/* end contactUsSec Sec */
+/*------------------start services page--------*/
+/* start servSec Sec */
+.servSec .servHeadding {
+  padding: 40px 0;
+  text-align: right;
+}
+.servSec .servHeadding h1 {
+  color: var(--green-color);
+  font-weight: bold;
+  font-size: 52px;
+  font-style: normal;
+  line-height: 1.12;
+}
+.servSec .servBody {
+  text-align: center;
+}
+.servSec .servBody .disActiveSec{
+  display: none;
+}
+.servSec .servBody .srvImg {
+  height: 500px;
+}
+.servSec .servBody .textBox {
+  padding: 90px;
+}
+.servSec .servBody .textBox .srvIcon {
+  margin: 10px 10px 0 10px;
+}
+.servSec .servBody .textBox h2 {
+  margin: 10px 10px 30px 10px;
+  font-weight: 500;
+  font-size: 46px;
+  font-style: normal;
+  line-height: 1.13;
+}
+.servSec .servBody .textBox h2 a {
+  color: var(--third-green-color);
+}
+.servSec .servBody .textBox p {
+  margin: 0 0 1em;
+}
+.servSec .servBody .textBox .servBtn {
+  margin-top: 40px;
+}
+.servSec .servBody .textBox .servBtn a {
+  font-size: 14px;
+  line-height: 16px;
+  padding: 16px 32px;
+  background: transparent;
+  color: var(--green-color);
+  border-color: var(--green-color);
+  border-radius: 100px;
+  border: 1px solid;
+  cursor: pointer;
+  transition: color 0.3s ease-out, border 0.3s ease-out,
+    background 0.3s ease-out, box-shadow 0.3s ease-out !important;
+}
+.servSec .servBody .textBox .servBtn a:hover {
+  border-color: var(--third-green-color);
+  background: var(--third-green-color);
+  color: #fff;
+}
+/* end servSec Sec */
+/* start NicePepoleSec Sec */
+.NicePepoleSec h4{
+  text-align: right;
+  padding-top: 240px;
+    padding-bottom: 320px;
+    padding-left: 50px;
+    font-weight: normal;
+    font-size: 80px;
+    font-style: normal;
+    line-height: 1;
+    color: var(--second-green-color);
+}
+
+/* end NicePepoleSec Sec */
+/*------------------start gallery page--------*/
+/* start galleryHeaddingSec Sec */
+.galleryHeaddingSec .title{
+  padding: 40px 0;
+  text-align: right;
+}
+.galleryHeaddingSec .title h1{
+  color: var(--green-color);
+  font-weight: bold;
+  font-size: 52px;
+  font-style: normal;
+  line-height: 1.12;
+}
+/* end galleryHeaddingSec Sec */
+/* start galleryProductsSec Sec */
+.galleryProductsSec{
+  padding-bottom: 40px;
+}
+.galleryProductsSec .imgItem{
+  height: 100% !important;
+}
+.galleryProductsSec img{
+  height: 100% !important;
+  padding: 10px 0;
+ 
+}
+.galleryProductsSec img.widthSet{
+  width: 100% !important;
+}
+/* end galleryProductsSec Sec */
+
+
+
+/* end galleryProductsSec Sec */
+/* -------------start Responsive---------- */
+/*  600 - 768 */
+
+@media screen and (max-width: 1184px){
+  .creative-slider-overlay-text{
+    font-size: 40px;
+  }
+  .creative-slider-overlay p{
+    font-size: 20px;
+  }
+  .bannerBoxSec .boxItem{
+    margin-bottom: 20px;
+  }
+  .bannerBoxSec .boxContent .boxTit h3{
+    font-size: 20px;
+  }
+  .breifSec .breifContent .breifTitle h4{
+    font-size: 50px;
+  }
+  .bannerSec .carousel-item .itemContent img{
+    height: 50vh;
+  }
+  header .navbar-brand {
+    font-size: 18px;
+  }
+  header .nav-link {
+    font-size: 10px;
+  }
+  .bannerSec .carousel-inner .carousel-caption .textContent h4 {
+    font-size: 12px;
+    letter-spacing: 0px;
+    margin-bottom: 7px;
+  }
+  .bannerSec .carousel-inner .carousel-caption .textContent p {
+    font-size: 6px;
+  }
+  .aboutUs {
+    padding-top: 0 !important;
+  }
+  .aboutUs .aboutRight{
+    padding: 60px 0 !important;
+  }
+  .aboutUs .aboutRight .aboutText{
+    margin-right: 30px !important;
+  }
+  .aboutUs .aboutRight .aboutText .secTitle{
+        font-size: 40px;
+    margin-bottom: 20px;
+  }
+  .aboutUs .aboutLeft{
+    padding-right: 0 !important;
+  }
+  .aboutUs .aboutLeft .leftGreenInfo{
+    padding: 80px 50px;
+  }
+  .aboutUs .moveTop{
+    margin-top: 0!important;
+  }
+  .aboutUs .aboutLeft .leftWhiteInfo{
+    padding: 80px 50px;
+  }
+  .aboutUs .aboutLeft .leftWhiteTwoInfo{
+    padding: 50px 50px;
+  }
+  .aboutUs .activeSec{
+    display: none !important;
+  }
+  .aboutUs .disActiveSec{
+    display: flex !important;
+  }
+  .makingSec {
+    padding: 40px 0 !important;
+    height: 30vh;
+  }
+  .makingSec .makingItem .makingTit h5{
+    font-size: 38px;
+  }
+  .navbar-toggler-icon{
+    background-color: #fff;
+  }
+  .aboutBanner .textContent h4{
+    font-size: 25px;
+    letter-spacing: 0;
+  }
+  .textOfferSec .textTit{
+    width: 100%;
+    font-size: 30px;
+  }
+  .textOfferSec .textInfo{
+    width: 100%;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  .aboutUsDesSec{
+    padding: 0!important;
+  }
+  .contactUsSec .contactForm{
+    padding-right: 0 !important;
+  }
+  .servSec .servBody .activeServ{
+    display: none;
+  }
+  .servSec .servBody .activeServ{
+    display: flex;
+  }
+  .aboutCardsSec .card{
+    margin-bottom: 20px;
+  }
+  .servSec .servBody .textBox{
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  .servSec .servBody .textBox h2{
+    font-size: 30px;
+  }
+  .NicePepoleSec h4{
+    padding: 30px 0;
+    font-size: 40px;
+    padding-left: 30px;
+  }
+  .NicePepoleSec img{
+    padding: 5px;
+  }
+  .contactUsSec .contactForm .contactText h2{
+    font-size: 34px;
+  }
+  .contactUsSec .contactForm{
+    padding: 0;
+  }
+  .NicePepoleSec .custmizeStart{
+    justify-content: flex-start !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .creative-slider-overlay-text{
+    font-size: 25px;
+  }
+  .creative-slider-overlay p{
+    font-size: 16px;
+  }
+  .bannerBoxSec .boxItem{
+    margin-bottom: 20px;
+  }
+  .bannerBoxSec .boxContent .boxTit h3{
+    font-size: 20px;
+  }
+  .breifSec .breifContent .breifTitle h4{
+    font-size: 50px;
+  }
+  .bannerSec .carousel-item .itemContent img{
+    height: 50vh;
+  }
+  header .navbar-brand {
+    font-size: 18px;
+  }
+  header .nav-link {
+    font-size: 10px;
+  }
+  .bannerSec .carousel-inner .carousel-caption .textContent h4 {
+    font-size: 12px;
+    letter-spacing: 0px;
+    margin-bottom: 7px;
+  }
+  .bannerSec .carousel-inner .carousel-caption .textContent p {
+    font-size: 6px;
+  }
+  .aboutUs {
+    padding-top: 0 !important;
+  }
+  .aboutUs .aboutRight{
+    padding: 60px 0 !important;
+  }
+  .aboutUs .aboutRight .aboutText{
+    margin-right: 30px !important;
+  }
+  .aboutUs .aboutRight .aboutText .secTitle{
+        font-size: 40px;
+    margin-bottom: 20px;
+  }
+  .aboutUs .aboutLeft{
+    padding-right: 0 !important;
+  }
+  .aboutUs .aboutLeft .leftGreenInfo{
+    padding: 80px 50px;
+  }
+  .aboutUs .moveTop{
+    margin-top: 0!important;
+  }
+  .aboutUs .aboutLeft .leftWhiteInfo{
+    padding: 80px 50px;
+  }
+  .aboutUs .aboutLeft .leftWhiteTwoInfo{
+    padding: 50px 50px;
+  }
+  .aboutUs .activeSec{
+    display: none !important;
+  }
+  .aboutUs .disActiveSec{
+    display: flex !important;
+  }
+  .makingSec {
+    padding: 40px 0 !important;
+  }
+  .makingSec .makingItem .makingTit h5{
+    font-size: 38px;
+  }
+  .navbar-toggler-icon{
+    background-color: #fff;
+  }
+  .aboutBanner .textContent h4{
+    font-size: 25px;
+    letter-spacing: 0;
+  }
+  .textOfferSec .textTit{
+    width: 100%;
+    font-size: 30px;
+  }
+  .textOfferSec .textInfo{
+    width: 100%;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  .aboutUsDesSec{
+    padding: 0!important;
+  }
+  .contactUsSec .contactForm{
+    padding-right: 0 !important;
+  }
+  .servSec .servBody .activeServ{
+    display: none;
+  }
+  .servSec .servBody .activeServ{
+    display: flex;
+  }
+  .aboutCardsSec .card{
+    margin-bottom: 20px;
+  }
+  .servSec .servBody .textBox{
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  .servSec .servBody .textBox h2{
+    font-size: 30px;
+  }
+  .NicePepoleSec h4{
+    padding: 30px 0;
+    font-size: 40px;
+    padding-left: 30px;
+  }
+  .NicePepoleSec img{
+    padding: 5px;
+  }
+  .contactUsSec .contactForm .contactText h2{
+    font-size: 34px;
+  }
+  .contactUsSec .contactForm{
+    padding: 0;
+  }
+  .NicePepoleSec .custmizeStart{
+    justify-content: flex-start !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .creative-slider-overlay-text{
+    font-size: 25px;
+  }
+  .creative-slider-overlay p{
+    font-size: 16px;
+  }
+  .bannerBoxSec .boxItem{
+    margin-bottom: 20px;
+  }
+  .bannerBoxSec .boxContent .boxTit h3{
+    font-size: 20px;
+  }
+  .breifSec .breifContent .breifTitle h4{
+    font-size: 50px;
+  }
+  .bannerSec .carousel-item .itemContent img{
+    height: 50vh;
+  }
+  header .navbar-brand {
+    font-size: 18px;
+  }
+  header .nav-link {
+    font-size: 10px;
+  }
+  .bannerSec .carousel-inner .carousel-caption .textContent h4 {
+    font-size: 12px;
+    letter-spacing: 0px;
+    margin-bottom: 7px;
+  }
+  .bannerSec .carousel-inner .carousel-caption .textContent p {
+    font-size: 6px;
+  }
+  .aboutUs {
+    padding-top: 0 !important;
+  }
+  .aboutUs .aboutRight{
+    padding: 60px 0 !important;
+  }
+  .aboutUs .aboutRight .aboutText{
+    margin-right: 30px !important;
+  }
+  .aboutUs .aboutRight .aboutText .secTitle{
+        font-size: 40px;
+    margin-bottom: 20px;
+  }
+  .aboutUs .aboutLeft{
+    padding-right: 0 !important;
+  }
+  .aboutUs .aboutLeft .leftGreenInfo{
+    padding: 80px 50px;
+  }
+  .aboutUs .moveTop{
+    margin-top: 0!important;
+  }
+  .aboutUs .aboutLeft .leftWhiteInfo{
+    padding: 80px 50px;
+  }
+  .aboutUs .aboutLeft .leftWhiteTwoInfo{
+    padding: 50px 50px;
+  }
+  .aboutUs .activeSec{
+    display: none !important;
+  }
+  .aboutUs .disActiveSec{
+    display: flex !important;
+  }
+  .makingSec {
+    padding: 40px 0 !important;
+  }
+  .makingSec .makingItem .makingTit h5{
+    font-size: 38px;
+  }
+  .navbar-toggler-icon{
+    background-color: #fff;
+  }
+  .aboutBanner .textContent h4{
+    font-size: 25px;
+    letter-spacing: 0;
+  }
+  .textOfferSec .textTit{
+    width: 100%;
+    font-size: 30px;
+  }
+  .textOfferSec .textInfo{
+    width: 100%;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  .aboutUsDesSec{
+    padding: 0!important;
+  }
+  .contactUsSec .contactForm{
+    padding-right: 0 !important;
+  }
+  .servSec .servBody .activeServ{
+    display: none;
+  }
+  .servSec .servBody .activeServ{
+    display: flex;
+  }
+  .aboutCardsSec .card{
+    margin-bottom: 20px;
+  }
+  .servSec .servBody .disActiveSec{
+    display: flex;
+  }
+  .servSec .servBody .activeSec{
+    display: none;
+  }
+  .servSec .servBody .textBox{
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  .servSec .servBody .textBox h2{
+    font-size: 30px;
+  }
+  .NicePepoleSec h4{
+    padding: 30px 0;
+    font-size: 40px;
+    padding-left: 30px;
+  }
+  .NicePepoleSec img{
+    padding: 5px;
+  }
+  .contactUsSec .contactForm .contactText h2{
+    font-size: 34px;
+  }
+}
+
+/* -------------end Responsive---------- */
