@@ -1066,11 +1066,28 @@ object-fit: cover;
   padding-bottom: 40px;
 }
 .galleryProductsSec .imgItem{
+  /* height: 100% !important; */
+  width: 100%;
+  height: 300px !important;
+}
+.galleryProductsSec .imgItem.imgAdjustNew{
+  height: 100% !important;
+}
+.galleryProductsSec .imgItem.imgAdjustNewWidth{
+  width: 100% !important;
+}
+.galleryProductsSec .imgItem.imgAdjustNewWidth img{
+  width: 100% !important;
+}
+.galleryProductsSec .imgItem.imgAdjustNew img{
   height: 100% !important;
 }
 .galleryProductsSec img{
-  height: 100% !important;
+  /* height: 100% !important; */
+  width: 100%;
+  height: 300px !important;
   padding: 10px 0;
+  object-fit: cover;
  
 }
 .galleryProductsSec img.widthSet{
