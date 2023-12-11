@@ -9,6 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/2.1.0/fingerprint2.min.js"></script>
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
@@ -372,8 +373,7 @@
             </div>
           </div>
           <div class="row justify-content-center">
-            <div
-              class="col-lg-6 d-flex justify-content-center text-center mt-3 align-items-center"
+            <div class="col-lg-6 d-flex justify-content-center text-center mt-3 align-items-center"
             >
               <div class="breifNumbers">
                 <div id="counter-section" class="boxTitle">
@@ -389,6 +389,22 @@
                 </div>
               </div>
             </div>
+            <div class="col-lg-6 d-flex justify-content-center text-center mt-3 align-items-center"
+          >
+            <div class="breifNumbers">
+              <div id="counter-section" class="boxTitle">
+                <div class="counter">
+                  <span class="count vistior___counter">0</span>
+                </div>
+              </div>
+              <div class="boxSubTitle">
+                <span lang="ar">زائر</span>
+              </div>
+              <div class="boxInfo mt-3">
+                <p lang="ar">أفضل الحلول لحديقتك</p>
+              </div>
+            </div>
+          </div>
             <!-- <div
               class="col-lg-6 d-flex justify-content-center text-center mt-3 align-items-center"
             >
@@ -1015,6 +1031,34 @@
     <div class="togleTopBtn" id="to-top-btn">
       <i class="fa-solid fa-arrow-up"></i>
     </div>
+
+
+    <script>
+      // Use Fingerprint2 to generate a unique fingerprint for the user's browser
+      Fingerprint2.get(function (components) {
+          const fingerprint = Fingerprint2.x64hash128(components.map(pair => pair.value).join(), 31);
+
+          // Check if the fingerprint is stored in localStorage
+          if (!localStorage.getItem('uniqueVisitorFingerprint')) {
+              // If not, store the fingerprint and increment the total visitor count
+              localStorage.setItem('uniqueVisitorFingerprint', fingerprint);
+
+              const totalVisitors = parseInt(localStorage.getItem('totalVisitors')) || 0;
+              localStorage.setItem('totalVisitors', totalVisitors + 1);
+
+              // Update the visitor count in the HTML
+              document.querySelector('.vistior___counter').textContent = totalVisitors + 1;
+          } else {
+              // If the fingerprint is already present, retrieve and display the total visitor count
+              const totalVisitors = parseInt(localStorage.getItem('totalVisitors')) || 0;
+              document.querySelector('.vistior___counter').textContent = totalVisitors;
+          }
+      });
+  </script>
+
+
+
+
     <script src="js/counterPageOne.js"></script>
     <script src="js/index.js"></script>
     <script src="js/popper.min.js"></script>
