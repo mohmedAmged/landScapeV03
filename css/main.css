@@ -153,10 +153,11 @@ header .nav-link {
   letter-spacing: 0.5px;
   transition: all 0.5s ease 0s;
   margin-top: 5px;
-  color: var(--white-text-color);
+  color: var(--third-green-color);
 }
 header .nav-link.active {
   color: var(--white-text-color) !important;
+  color: var(--green-color) !important;
   border-bottom: 3px solid var(--green-color);
 }
 header .nav-link:hover {
@@ -1095,7 +1096,11 @@ object-fit: cover;
 }
 /* end galleryProductsSec Sec */
 
-
+.navbar-toggler {
+  color: white !important;
+  border-color: white;
+  background: white;
+}
 
 /* end galleryProductsSec Sec */
 /* -------------start Responsive---------- */
@@ -1175,9 +1180,9 @@ object-fit: cover;
   .makingSec .makingItem .makingTit h5{
     font-size: 38px;
   }
-  .navbar-toggler-icon{
+  /* .navbar-toggler-icon{
     background-color: #fff;
-  }
+  } */
   .aboutBanner .textContent h4{
     font-size: 25px;
     letter-spacing: 0;
@@ -1304,9 +1309,9 @@ object-fit: cover;
   .makingSec .makingItem .makingTit h5{
     font-size: 38px;
   }
-  .navbar-toggler-icon{
+  /* .navbar-toggler-icon{
     background-color: #fff;
-  }
+  } */
   .aboutBanner .textContent h4{
     font-size: 25px;
     letter-spacing: 0;
@@ -1384,7 +1389,7 @@ object-fit: cover;
     font-size: 18px;
   }
   header .nav-link {
-    font-size: 10px;
+    font-size: 18px;
   }
   .bannerSec .carousel-inner .carousel-caption .textContent h4 {
     font-size: 12px;
@@ -1434,9 +1439,10 @@ object-fit: cover;
   .makingSec .makingItem .makingTit h5{
     font-size: 38px;
   }
-  .navbar-toggler-icon{
+
+  /* .navbar-toggler-icon{
     background-color: #fff;
-  }
+  } */
   .aboutBanner .textContent h4{
     font-size: 25px;
     letter-spacing: 0;

@@ -14,59 +14,87 @@
   <body>
      <!-- start header Part -->
      <header class="aboutHeader">
-      <nav lang="ar" class="navbar navbar-expand-lg">
-        <div class="container d-flex align-items-center mx-auto">
-          <a lang="ar" class="navbar-brand" href="index.html"
-            >ريحانة الربيع <i class="fa-brands fa-envira"></i
-          ></a>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a lang="ar" class="navbar-brand" href="index.html">ريحانة الربيع <i class="fa-brands fa-envira"></i
+            ></a>
           <button
             class="navbar-toggler"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasWithBothOptions"
+            aria-controls="offcanvasWithBothOptions"
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mx-auto">
-              <li class="nav-item">
-                <a
-                  lang="ar"
-                  class="nav-link"
-                  aria-current="page"
-                  data-target="home"
-                  href="index.html"
-                  >الصفحه الرئيسية</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  lang="ar"
-                  class="nav-link"
-                  data-target="About"
-                  href="aboutUs.html"
-                  >عن الشركة</a
-                >
-              </li>
-              <li class="nav-item">
-                <a lang="ar" class="nav-link" data-target="Services" href="services.html"
-                  >خدماتنا</a
-                >
-              </li>
-              <li class="nav-item">
-                <a lang="ar" class="nav-link" data-target="Services" href="gallery.html"
-                  >المعرض</a
-                >
-              </li>
-              <li class="nav-item ">
-                <a lang="ar" class="nav-link active" data-target="Contact" href="contact.html"
-                  >تواصل معنا</a
-                >
-              </li>
-            </ul>
+
+          <div
+            class="offcanvas offcanvas-start"
+            data-bs-scroll="true"
+            tabindex="-1"
+            id="offcanvasWithBothOptions"
+            aria-labelledby="offcanvasWithBothOptionsLabel"
+          >
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body py-4">
+              <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a
+                    lang="ar"
+                    class="nav-link"
+                    aria-current="page"
+                    data-target="home"
+                    href="index.html"
+                    >الصفحه الرئيسية</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    lang="ar"
+                    class="nav-link"
+                    data-target="About"
+                    href="aboutUs.html"
+                    >عن الشركة</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    lang="ar"
+                    class="nav-link"
+                    data-target="Services"
+                    href="services.html"
+                    >خدماتنا</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    lang="ar"
+                    class="nav-link"
+                    data-target="Services"
+                    href="gallery.html"
+                    >المعرض</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    lang="ar"
+                    class="nav-link active"
+                    data-target="Contact"
+                    href="contact.html"
+                    >تواصل معنا</a
+                  >
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </nav>
@@ -93,7 +121,7 @@
 
     <section class="contactUsSec p-top">
       <div class="container">
-        <div class="row">
+        <div class="row m-0">
           <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="contactImg">
               <img
@@ -104,7 +132,7 @@
             </div>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-12 contactForm">
-            <div class="row">
+            <div class="row m-0">
               <div class="col-lg-12">
                 <div class="contactText">
                   <h2>اجلب الطبيعة إلى منزلك.</h2>
