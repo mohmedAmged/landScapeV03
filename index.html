@@ -1072,7 +1072,7 @@
               fetch('https://landscape-data.onrender.com/visitors')
               .then(response => response.json())
               .then(data => {
-                  const totalVisitors = data[0] && data[0].id || 0;
+                  const totalVisitors = data.length || 0;
                   document.querySelector('.vistior___counter').textContent = totalVisitors;
               console.log(totalVisitors);
               console.log(data);
