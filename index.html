@@ -1034,24 +1034,42 @@
 
 
     <script>
-      // Use Fingerprint2 to generate a unique fingerprint for the user's browser
       Fingerprint2.get(function (components) {
           const fingerprint = Fingerprint2.x64hash128(components.map(pair => pair.value).join(), 31);
 
           // Check if the fingerprint is stored in localStorage
           if (!localStorage.getItem('uniqueVisitorFingerprint')) {
-              // If not, store the fingerprint and increment the total visitor count
-              localStorage.setItem('uniqueVisitorFingerprint', fingerprint);
+              // If not, send a request to JSON Server to increment the total visitor count
+              fetch('https://landscape-data.onrender.com/visitors', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({ fingerprint }),
+              })
+              .then(response => response.json())
+              .then(data => {
+                  // Store the fingerprint locally
+                  localStorage.setItem('uniqueVisitorFingerprint', fingerprint);
 
-              const totalVisitors = parseInt(localStorage.getItem('totalVisitors')) || 0;
-              localStorage.setItem('totalVisitors', totalVisitors + 1);
-
-              // Update the visitor count in the HTML
-              document.querySelector('.vistior___counter').textContent = totalVisitors + 1;
+                  // Update the visitor count in the HTML
+                  document.querySelector('.vistior___counter').textContent = data.totalVisitors;
+                  console.log(data);
+              })
+              .catch(error => console.error('Error:', error));
+              console.log(fingerprint);
           } else {
               // If the fingerprint is already present, retrieve and display the total visitor count
-              const totalVisitors = parseInt(localStorage.getItem('totalVisitors')) || 0;
-              document.querySelector('.vistior___counter').textContent = totalVisitors;
+              fetch('https://landscape-data.onrender.com/visitors')
+              .then(response => response.json())
+              .then(data => {
+                  const totalVisitors = data.totalVisitors || 0;
+                  document.querySelector('.vistior___counter').textContent = totalVisitors;
+              console.log(totalVisitors);
+              console.log(data);
+              })
+              .catch(error => console.error('Error:', error));
+              console.log(fingerprint);
           }
       });
   </script>
