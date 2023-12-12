@@ -1037,6 +1037,14 @@
       Fingerprint2.get(function (components) {
           const fingerprint = Fingerprint2.x64hash128(components.map(pair => pair.value).join(), 31);
 
+            // Include additional information in the fingerprint
+        const additionalInfo = {
+            userAgent: navigator.userAgent,
+            screenWidth: window.screen.width,
+            screenHeight: window.screen.height,
+        };
+
+        const combinedFingerprint = Fingerprint2.x64hash128(fingerprint + JSON.stringify(additionalInfo), 31);
           // Check if the fingerprint is stored in localStorage
           if (!localStorage.getItem('uniqueVisitorFingerprint')) {
               // If not, send a request to JSON Server to increment the total visitor count
@@ -1045,12 +1053,12 @@
                   headers: {
                       'Content-Type': 'application/json',
                   },
-                  body: JSON.stringify({ fingerprint }),
+                  body: JSON.stringify({ fingerprint: combinedFingerprint }),
               })
               .then(response => response.json())
               .then(data => {
                   // Store the fingerprint locally
-                  localStorage.setItem('uniqueVisitorFingerprint', fingerprint);
+                  localStorage.setItem('uniqueVisitorFingerprint', combinedFingerprint);
 
                   // Update the visitor count in the HTML
                   document.querySelector('.vistior___counter').textContent = data.length;
