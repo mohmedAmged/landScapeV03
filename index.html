@@ -1033,7 +1033,7 @@
     </div>
 
     <!-- visitor counter function -->
-    <script>
+    <!-- <script>
       Fingerprint2.get(function (components) {
           const fingerprint = Fingerprint2.x64hash128(components.map(pair => pair.value).join(), 31);
 
@@ -1081,9 +1081,72 @@
               console.log(fingerprint);
           }
       });
-  </script>
+  </script> -->
 
+  <script>
+    Fingerprint2.get(function (components) {
+        const fingerprint = Fingerprint2.x64hash128(components.map(pair => pair.value).join(), 31);
 
+        // Include additional information in the fingerprint
+        const additionalInfo = {
+            userAgent: navigator.userAgent,
+            screenWidth: window.screen.width,
+            screenHeight: window.screen.height,
+        };
+
+        const combinedFingerprint = Fingerprint2.x64hash128(fingerprint + JSON.stringify(additionalInfo), 31);
+
+        // Retrieve the stored fingerprint and visitor count from localStorage
+        const storedFingerprint = localStorage.getItem('uniqueVisitorFingerprint');
+        const storedVisitorCount = parseInt(localStorage.getItem('visitorCount')) || 0;
+
+        // Check if the fingerprint is stored in localStorage
+        if (!storedFingerprint || storedFingerprint !== combinedFingerprint) {
+            // If not, send a request to JSON Server to increment the total visitor count
+            fetch('https://landscape-data.onrender.com/visitors', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ fingerprint: combinedFingerprint }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Calculate the new visitor count
+                const newVisitorCount = data.length > 1 ? storedVisitorCount + data.length - 1 : data.length;
+
+                // Store the fingerprint and new visitor count locally
+                localStorage.setItem('uniqueVisitorFingerprint', combinedFingerprint);
+                localStorage.setItem('visitorCount', newVisitorCount);
+
+                // Update the visitor count in the HTML
+                document.querySelector('.vistior___counter').textContent = newVisitorCount;
+            })
+            .catch(error => console.error('Error:', error));
+            console.log(fingerprint);
+        } else {
+            // If the fingerprint is already present, use the stored visitor count
+            document.querySelector('.vistior___counter').textContent = storedVisitorCount;
+            console.log(fingerprint);
+
+            // Fetch data to get the updated visitor count
+            fetch('https://landscape-data.onrender.com/visitors')
+            .then(response => response.json())
+            .then(data => {
+                const updatedVisitorCount = data.length || 0;
+                if (updatedVisitorCount > storedVisitorCount) {
+                    // Calculate the new visitor count and store it
+                    const newVisitorCount = storedVisitorCount + updatedVisitorCount - storedVisitorCount;
+                    localStorage.setItem('visitorCount', newVisitorCount);
+
+                    // Update the visitor count in the HTML
+                    document.querySelector('.vistior___counter').textContent = newVisitorCount;
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    });
+</script>
 
 
     <script src="js/counterPageOne.js"></script>
