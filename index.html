@@ -1053,7 +1053,7 @@
                   localStorage.setItem('uniqueVisitorFingerprint', fingerprint);
 
                   // Update the visitor count in the HTML
-                  document.querySelector('.vistior___counter').textContent = data.totalVisitors;
+                  document.querySelector('.vistior___counter').textContent = data.length;
                   console.log(data);
               })
               .catch(error => console.error('Error:', error));
