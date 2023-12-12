@@ -1062,8 +1062,8 @@
 
                   // Update the visitor count in the HTML
                   document.querySelector('.vistior___counter').textContent = data.length;
-                  console.log(data);
-                  console.log(data.length);
+                  // console.log(data);
+                  // console.log(data.length);
               })
               .catch(error => console.error('Error:', error));
               console.log(fingerprint);
@@ -1074,8 +1074,8 @@
               .then(data => {
                   const totalVisitors = data.length || 0;
                   document.querySelector('.vistior___counter').textContent = totalVisitors;
-              console.log(totalVisitors);
-              console.log(data);
+              // console.log(totalVisitors);
+              // console.log(data);
               })
               .catch(error => console.error('Error:', error));
               console.log(fingerprint);
