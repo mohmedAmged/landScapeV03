@@ -44,19 +44,25 @@ loadMoreBtn.addEventListener('click', function() {
   }
 
 // to top button
-let toTopBtn = document.getElementById("to-top-btn");
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 700) {
-    toTopBtn.style.display = "flex";
-  } else {
-    toTopBtn.style.display = "none";
+document.addEventListener("DOMContentLoaded", function() {
+  let toTopBtn = document.querySelector("#to-top-btn");
+
+  if (toTopBtn) {
+      window.addEventListener("scroll", () => {
+          if (window.scrollY > 700) {
+              toTopBtn.style.display = "flex";
+          } else {
+              toTopBtn.style.display = "none";
+          }
+      });
+
+      toTopBtn.addEventListener("click", () => {
+          window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+          });
+      });
   }
-});
-toTopBtn.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
 });
 
 //////////////////

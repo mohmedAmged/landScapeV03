@@ -450,6 +450,7 @@
       <!-- end contactUsSec Sec -->
     </main>
     <!-- end main part -->
+
     <!-- start footer Part -->
     <footer class="footerSec">
       <div class="container">
@@ -499,8 +500,35 @@
       </div>
     </footer>
     <!-- end footer Part -->
-    <script src="js/index.js"></script>
+    <div class="togleTopBtn" id="to-top-btn">
+      <i class="fa-solid fa-arrow-up"></i>
+    
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          let toTopBtn = document.querySelector("#to-top-btn");
+  
+          if (toTopBtn) { // Ensure the element is found
+              window.addEventListener("scroll", () => {
+                  if (window.scrollY > 700) {
+                      toTopBtn.style.display = "flex";
+                  } else {
+                      toTopBtn.style.display = "none";
+                  }
+              });
+  
+              toTopBtn.addEventListener("click", () => {
+                  window.scrollTo({
+                      top: 0,
+                      behavior: "smooth",
+                  });
+              });
+          }
+      });
+  </script>
+
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>

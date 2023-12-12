@@ -153,10 +153,11 @@ header .nav-link {
   letter-spacing: 0.5px;
   transition: all 0.5s ease 0s;
   margin-top: 5px;
-  color: var(--third-green-color);
+  /* color: var(--third-green-color); */
+  color: var(--white-text-color);
 }
 header .nav-link.active {
-  color: var(--white-text-color) !important;
+  /* color: var(--white-text-color) !important; */
   color: var(--green-color) !important;
   border-bottom: 3px solid var(--green-color);
 }
@@ -1105,7 +1106,11 @@ object-fit: cover;
 /* end galleryProductsSec Sec */
 /* -------------start Responsive---------- */
 /*  600 - 768 */
-
+@media screen and (max-width: 992px){
+  header .nav-link{
+    color: var(--third-green-color);
+  }
+}
 @media screen and (max-width: 1184px){
   .creative-slider-overlay-text{
     font-size: 40px;
