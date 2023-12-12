@@ -1055,6 +1055,7 @@
                   // Update the visitor count in the HTML
                   document.querySelector('.vistior___counter').textContent = data.length;
                   console.log(data);
+                  console.log(data.length);
               })
               .catch(error => console.error('Error:', error));
               console.log(fingerprint);
@@ -1063,7 +1064,7 @@
               fetch('https://landscape-data.onrender.com/visitors')
               .then(response => response.json())
               .then(data => {
-                  const totalVisitors = data.totalVisitors || 0;
+                  const totalVisitors = data[0] && data[0].id || 0;
                   document.querySelector('.vistior___counter').textContent = totalVisitors;
               console.log(totalVisitors);
               console.log(data);
